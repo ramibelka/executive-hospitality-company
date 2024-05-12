@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import Logo from "../public/images/Logo.svg";
 import Link from "next/link";
+import Logo from "../public/images/Logo";
 
 const Footer = () => {
   return (
@@ -47,13 +47,7 @@ const Footer = () => {
           <h3 className="font-manrope text-lg font-normal text-stone-950 opacity-75">
             © 2019 Lift Media. All rights reserved.
           </h3>
-          <Image
-            alt="logo"
-            src={Logo}
-            width={50}
-            height={37}
-            className="dark:invert"
-          />
+          <Logo />
           <h3 className="flex gap-3 font-manrope text-lg font-normal text-stone-950">
             <Link href="/contact">Terms of Service</Link>
             <Link href="/contact">Privacy Policy</Link>

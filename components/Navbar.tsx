@@ -1,30 +1,29 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../public/images/Logo.svg";
-import MenuIcon from "../public/icons/MenuIcon.svg";
-import ContactIcon from "../public/icons/ContactIcon.svg";
+import MenuIcon from "../public/icons/MenuIcon.js";
+import ArrowIcon from "../public/icons/ArrowIcon.js";
+import Logo from "../public/images/Logo";
 
 const Navbar = () => {
   return (
-    <nav className="fixed left-0 top-0 z-50 inline-flex w-screen flex-1 items-center justify-between px-[70px] py-[25px]">
+    <nav className="fixed left-0 top-0 z-50 inline-flex w-screen flex-1 items-center justify-between px-[70px]">
       <Link href="/contact" className="flex items-center gap-4">
-        <span className="font-manrope text-2xl font-bold capitalize leading-[25.20px] text-stone-100">
-          Contact Us
+        <span className="font-league text-2xl font-normal uppercase leading-[58.50px] text-stone-100 bg-blend-difference">
+          Contact us
         </span>
-        <Image alt="menu icon" src={ContactIcon} width={50} height={50} />
+        <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-stone-100 p-[17px]">
+          <ArrowIcon className="scale-[0.6] overflow-visible" />
+        </div>
       </Link>
-      <div className="relative">
-        <Image alt="logo" src={Logo} width={47} height={60} />
-      </div>
-      <button
-        aria-label="Toggle Menu"
-        className="flex items-center  gap-[15px]"
-      >
-        <span className="font-['Manrope'] text-2xl font-bold capitalize leading-[25.20px] text-stone-100">
+      <Link href={"/"} className="relative h-20 w-[67px]">
+        <Logo className="scale-[0.6] bg-blend-difference" />
+      </Link>
+      <button aria-label="Toggle Menu" className="flex items-center">
+        <span className="font-manrope text-xl font-bold capitalize text-stone-100">
           Menu
         </span>
-        <Image alt="menu icon" src={MenuIcon} width={50} height={50} />
+        <MenuIcon className="scale-[0.6]" />
       </button>
     </nav>
   );

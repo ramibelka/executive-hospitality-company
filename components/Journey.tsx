@@ -1,38 +1,52 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import InsideCar from "../public/images/InsideCar.png";
 import Image from "next/image";
-import ArrowIcon from "../public/icons/ArrowIcon.svg";
+import ArrowIcon from "@/public/icons/ArrowIcon";
 
 const Journey = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll();
+  console.log("heeeeeeeeeeeeere" + scrollYProgress);
+  const translateX = useTransform(scrollYProgress, [0, 1], [-100, 500]);
+  const physics = { damping: 15, mass: 0.27, stiffness: 55 };
+  const spring = useSpring(translateX, physics);
+
   return (
-    <section className="relative h-screen w-screen overflow-hidden">
+    <section className="relative h-screen w-screen overflow-hidden" ref={ref}>
       <div className="absolute top-0 -z-10 h-full w-3/12 bg-stone-950"></div>
-      <div className="flex h-full justify-center">
-        <div className="scale-75">
+      <div className="flex h-full items-center justify-center">
+        <motion.div style={{ x: spring }}>
           <Image
             src={InsideCar}
             alt="inside a car"
             height={700}
             width={525.26}
+            className="scale-75"
           />
-        </div>
-        <div className="inline-flex h-full w-[680px] flex-col items-start justify-center gap-7">
-          <h1 className="w-[680px] font-league text-[120px] font-normal capitalize leading-[108px] text-stone-950">
+        </motion.div>
+        <div className="inline-flex h-full w-[680px] flex-col items-start justify-center gap-3">
+          <h1 className="w-[680px] font-league text-7xl font-normal capitalize text-stone-950">
             Our Journey of <br /> Luxury and Precision
           </h1>
-          <p className="w-[638px] font-manrope text-2xl font-normal leading-[28.80px] text-stone-700">
+          <p className="w-8/12 font-manrope text-base font-normal leading-[28.80px] text-stone-700">
             Founded in the heart of London, Executive Hospitality Company has
             redefined luxury travel with over a decade of industry-leading
             experience. Our founders’ innovative approach to chauffeur services,
             personal security, and concierge solutions ensures every detail is
             meticulously managed to deliver unparalleled service
           </p>
-          <div className="inline-flex h-[65px] w-[233.08px] items-center justify-center gap-[15px] rounded-[100px] border-2 border-stone-950  px-[23px] py-5">
-            <button className="flex w-full items-center justify-center gap-[15px] font-['Manrope'] text-[28px] font-medium capitalize  text-stone-950 ">
-              <span className="font-manrope text-2xl font-medium capitalize leading-[25.20px] text-stone-950 ">
+          <div className="inline-flex items-center justify-center gap-[15px]">
+            <button className="flex w-full items-center justify-center gap-[15px] font-manrope text-[28px] font-medium capitalize  text-stone-950">
+              <span className="font-league text-4xl font-normal uppercase leading-[58.50px] text-stone-950">
                 Contact us
               </span>
-              <Image src={ArrowIcon} alt="arrow" className="dark:invert" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]">
+                <ArrowIcon
+                  fill="#110F0E"
+                  className="scale-[0.7] overflow-visible"
+                />
+              </div>
             </button>
           </div>
         </div>
