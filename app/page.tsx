@@ -24,23 +24,16 @@ export default function Home() {
     requestAnimationFrame(raf);
   }, []);
 
-  function getWindowDimensions() {
-    const { innerWidth: width } = window;
-    return {
-      width,
-    };
-  }
-
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const ghostRef = useRef<HTMLDivElement | null>(null);
   const [scrollRange, setScrollRange] = useState(0);
-  const [viewportW, setViewportW] = useState(getWindowDimensions().width);
+  const [viewportW, setViewportW] = useState(0);
 
   useEffect(() => {
+    setViewportW(window.innerWidth);
     function handleResize() {
-      setViewportW(getWindowDimensions().width);
+      setViewportW(window.innerWidth);
     }
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
