@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="flex w-full flex-col items-center justify-center gap-10">
         <div className="flex w-full flex-col">
           <div className="flex gap-32 border-t-[1px] border-stone-700 py-10">
-            <h1 className="w-32 font-league text-3xl font-normal capitalize leading-[43.20px] text-stone-950">
+            <h1 className="w-32 font-league text-3xl font-normal capitalize text-stone-950">
               Address
             </h1>
             <p className="font-manrope text-3xl font-normal text-stone-700">
@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex gap-32 border-t-[1px] border-stone-700 py-10">
-            <h1 className="w-32 font-league text-3xl font-normal capitalize leading-[43.20px] text-stone-950">
+            <h1 className="w-32 font-league text-3xl font-normal capitalize text-stone-950">
               Phone
             </h1>
             <p className="font-manrope text-3xl font-normal text-stone-700">
@@ -27,7 +27,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex gap-32 border-t-[1px] border-stone-700 py-10">
-            <h1 className="w-32 font-league text-3xl font-normal capitalize leading-[43.20px] text-stone-950">
+            <h1 className="w-32 font-league text-3xl font-normal capitalize text-stone-950">
               Fax
             </h1>
             <p className=" font-manrope text-3xl font-normal text-stone-700">
@@ -40,15 +40,16 @@ const Footer = () => {
           <Link href="/contact">About us</Link>
           <Link href="/contact">Chauffeur Drive</Link>
           <Link href="/contact">Personal Security</Link>
+          <Link href="/contact">Personal Concierge</Link>
           <Link href="/contact">Events</Link>
           <Link href="/contact">Contact Us</Link>
         </div>
-        <div className="flex w-full items-center justify-between">
-          <h3 className="font-manrope text-lg font-normal text-stone-950 opacity-75">
+        <div className="flex w-full items-center justify-between text-sm">
+          <h3 className="font-manrope  font-normal text-stone-950 opacity-75">
             © 2019 Lift Media. All rights reserved.
           </h3>
-          <Logo />
-          <h3 className="flex gap-3 font-manrope text-lg font-normal text-stone-950">
+          <Logo fill="#110F0" className="scale-[0.6]" />
+          <h3 className="flex gap-3 font-manrope font-normal text-stone-950">
             <Link href="/contact">Terms of Service</Link>
             <Link href="/contact">Privacy Policy</Link>
           </h3>

@@ -7,7 +7,6 @@ import ArrowIcon from "@/public/icons/ArrowIcon";
 const Journey = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll();
-  console.log("heeeeeeeeeeeeere" + scrollYProgress);
   const translateX = useTransform(scrollYProgress, [0, 1], [-100, 500]);
   const physics = { damping: 15, mass: 0.27, stiffness: 55 };
   const spring = useSpring(translateX, physics);
@@ -38,7 +37,7 @@ const Journey = () => {
           </p>
           <div className="inline-flex items-center justify-center gap-[15px]">
             <button className="flex w-full items-center justify-center gap-[15px] font-manrope text-[28px] font-medium capitalize  text-stone-950">
-              <span className="font-league text-4xl font-normal uppercase leading-[58.50px] text-stone-950">
+              <span className="font-league text-4xl font-normal uppercase text-stone-950">
                 Contact us
               </span>
               <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]">

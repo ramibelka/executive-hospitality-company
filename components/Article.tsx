@@ -2,9 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ArrowIcon from "@/public/icons/ArrowIcon";
 
 interface Props {
-  title: JSX.Element;
+  title: {
+    titleP1: string;
+    titleP2: string;
+  };
   desc: string;
   image: any;
 }
@@ -16,7 +20,16 @@ const Article: React.FC<Props> = ({ title, desc, image }) => {
         <div className="flex flex-col items-center justify-center gap-5">
           <div className="flex w-[750] items-center justify-between ">
             <h1 className="font-league text-5xl font-normal capitalize text-stone-950">
-              {title}
+              {title.titleP1}
+              <span className="flex items-center gap-2 ">
+                {title.titleP2}
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-stone-700 p-[17px]">
+                  <ArrowIcon
+                    className="scale-[0.7] overflow-visible"
+                    fill="#110F0"
+                  />
+                </span>
+              </span>
             </h1>
             <p className="w-5/12 text-justify font-manrope text-xs font-normal text-stone-700">
               {desc}
