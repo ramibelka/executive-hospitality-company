@@ -3,6 +3,7 @@ import Logo from "@/public/images/Logo";
 import CloseIcon from "@/public/icons/CloseIcon";
 import Link from "next/link";
 import ArrowIcon from "@/public/icons/ArrowIcon";
+import { useEffect } from "react";
 
 interface Props {
   toggleMenu: () => void;
@@ -10,6 +11,17 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -24,6 +36,7 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
             initial={{ backdropFilter: "blur(0)" }}
             animate={{ backdropFilter: "blur(7px)" }}
             transition={{ duration: 2 }}
+            onClick={toggleMenu}
           ></motion.div>
           <motion.div
             className="flex h-full w-2/3 flex-col justify-between bg-slate-50 px-16 py-2"
