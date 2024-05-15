@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="h-screen w-screen overflow-hidden">
       <BgVideo />
-      <div className="relative z-10 ml-20 inline-flex h-full w-full flex-col items-start justify-center gap-5">
+      <div className="relative z-10 inline-flex h-full w-full flex-col items-start justify-center gap-5 pl-[70px]">
         <h1 className="font-league text-8xl font-normal capitalize text-stone-100">
           Elevate Your Journey <br /> with Unmatched Luxury
         </h1>
