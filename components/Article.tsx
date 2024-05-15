@@ -15,7 +15,7 @@ interface Props {
 
 const Article: React.FC<Props> = ({ title, desc, image }) => {
   return (
-    <section className="flex h-screen w-[1100px] items-center justify-center overflow-hidden p-28">
+    <section className="flex h-screen w-[1100px] items-center justify-center overflow-hidden bg-white p-28">
       <Link href={"/link"}>
         <div className="flex flex-col items-center justify-center gap-5">
           <div className="flex w-[750] items-center justify-between ">

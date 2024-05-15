@@ -13,8 +13,8 @@ const Journey = () => {
 
   return (
     <section className="relative h-screen w-screen overflow-hidden" ref={ref}>
-      <div className="absolute top-0 -z-10 h-full w-3/12 bg-stone-950"></div>
-      <div className="flex h-full items-center justify-center">
+      <div className="absolute top-0 h-full w-3/12 bg-stone-950"></div>
+      <div className="flex h-full items-center justify-center bg-white">
         <motion.div style={{ x: spring }}>
           <Image
             src={InsideCar}
