@@ -1,9 +1,11 @@
+import { HoverContext } from "@/context/HoverContext";
 import ArrowIcon from "@/public/icons/ArrowIcon";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 
 const Card = () => {
+  const { setCursorSize } = useContext(HoverContext);
   return (
     <article className="mt-5 flex w-[600px] flex-col gap-16 overflow-hidden border-l border-stone-100 px-16">
       <motion.div
@@ -22,7 +24,16 @@ const Card = () => {
           </p>
         </div>
         <div className="flex flex-col gap-3">
-          <Link href={"/"} className="flex items-center gap-5">
+          <Link
+            href={"/"}
+            className="flex items-center gap-5"
+            onMouseEnter={() => {
+              setCursorSize(50);
+            }}
+            onMouseLeave={() => {
+              setCursorSize(8);
+            }}
+          >
             <h2 className="font-league text-4xl uppercase text-stone-100">
               See Event
             </h2>

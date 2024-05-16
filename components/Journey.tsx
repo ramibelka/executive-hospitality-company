@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import InsideCar from "../public/images/InsideCar.png";
 import Image from "next/image";
@@ -10,6 +10,7 @@ const Journey = () => {
   const translateX = useTransform(scrollYProgress, [0, 1], [-100, 500]);
   const physics = { damping: 15, mass: 0.27, stiffness: 55 };
   const spring = useSpring(translateX, physics);
+  const [IsHovered, setIsHovered] = useState(false);
 
   return (
     <section className="relative h-screen w-screen overflow-hidden" ref={ref}>
@@ -36,13 +37,17 @@ const Journey = () => {
             meticulously managed to deliver unparalleled service
           </p>
           <div className="inline-flex items-center justify-center gap-[15px]">
-            <button className="flex w-full items-center justify-center gap-[15px] font-manrope text-[28px] font-medium capitalize  text-stone-950">
+            <button
+              onMouseOver={() => setIsHovered(true)}
+              onMouseOut={() => setIsHovered(false)}
+              className="group flex w-full items-center justify-center gap-[15px] font-manrope text-[28px] font-medium capitalize  text-stone-950"
+            >
               <span className="font-league text-4xl font-normal uppercase text-stone-950">
                 Contact us
               </span>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-stone-950 p-[20px] group-hover:bg-black">
                 <ArrowIcon
-                  fill="#110F0E"
+                  fill={IsHovered ? "white" : "black"}
                   className="scale-[0.7] overflow-visible"
                 />
               </div>

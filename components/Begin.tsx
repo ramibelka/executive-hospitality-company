@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import BeginImg from "../public/images/BeginImg.png";
 import Image from "next/image";
 import ArrowIcon from "@/public/icons/ArrowIcon";
 import Link from "next/link";
 import { useSpring, useTransform, motion, useScroll } from "framer-motion";
+import { HoverContext } from "@/context/HoverContext";
 
 const Begin = () => {
   const { scrollYProgress } = useScroll();
   const translateX = useTransform(scrollYProgress, [0, 1], [-1500, 200]); //change  this to scale////////
   const physics = { damping: 15, mass: 0.27, stiffness: 100 };
   const spring = useSpring(translateX, physics);
+  const { setCursorSize } = useContext(HoverContext);
   return (
     <section className="relative z-10 h-screen w-screen overflow-hidden">
       <Link href={"/"}>
@@ -26,7 +28,15 @@ const Begin = () => {
               width={1190}
               className="scale-[0.6]"
             />
-            <div className="absolute bottom-64 left-80 flex items-center justify-center">
+            <div
+              className="absolute bottom-64 left-80 flex items-center justify-center"
+              onMouseEnter={() => {
+                setCursorSize(100);
+              }}
+              onMouseLeave={() => {
+                setCursorSize(8);
+              }}
+            >
               <h1 className="font-league text-8xl capitalize text-stone-100">
                 <span className="flex items-center gap-4">
                   Begin Your <br />

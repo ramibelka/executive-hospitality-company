@@ -3,7 +3,7 @@ import Logo from "@/public/images/Logo";
 import CloseIcon from "@/public/icons/CloseIcon";
 import Link from "next/link";
 import ArrowIcon from "@/public/icons/ArrowIcon";
-import { useEffect } from "react";
+import { useState } from "react";
 
 interface Props {
   toggleMenu: () => void;
@@ -11,16 +11,17 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
+  const [hoveredLinks, setHoveredLinks] = useState<string[]>([]);
+
+  const handleHover = (href: string) => {
+    setHoveredLinks((prev) => [...prev, href]);
+  };
+
+  const handleHoverExit = (href: string) => {
+    setHoveredLinks((prev) => prev.filter((link) => link !== href));
+  };
+
+  const isLinkHovered = (href: string) => hoveredLinks.includes(href);
 
   return (
     <AnimatePresence>
@@ -57,47 +58,149 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
             </div>
 
             <div className="flex flex-col gap-2 pl-3">
-              <Link
-                href={"/HOME"}
-                className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
-              >
-                <span>HOME</span>
-                <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]">
-                  <ArrowIcon
-                    fill="#110F0E"
-                    className="scale-[0.6] overflow-visible"
-                  />
-                </div>
+              <Link href={"/HOME"}>
+                <motion.a
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
+                  whileHover={{ scale: 1.1, color: "#FF69B4" }}
+                  onMouseEnter={() => handleHover("/HOME")}
+                  onMouseLeave={() => handleHoverExit("/HOME")}
+                >
+                  <span>HOME</span>
+                  {isLinkHovered("/HOME") && (
+                    <motion.div
+                      className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowIcon
+                        fill="#110F0E"
+                        className="scale-[0.6] overflow-visible"
+                      />
+                    </motion.div>
+                  )}
+                </motion.a>
               </Link>
-              <Link
-                href={"/ABOUT"}
-                className="font-league text-5xl font-normal uppercase text-stone-950"
-              >
-                ABOUT
+              <Link href={"/ABOUT"}>
+                <motion.a
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
+                  whileHover={{ scale: 1.1, color: "#FF69B4" }}
+                  onMouseEnter={() => handleHover("/ABOUT")}
+                  onMouseLeave={() => handleHoverExit("/ABOUT")}
+                >
+                  ABOUT
+                  {isLinkHovered("/ABOUT") && (
+                    <motion.div
+                      className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowIcon
+                        fill="#110F0E"
+                        className="scale-[0.6] overflow-visible"
+                      />
+                    </motion.div>
+                  )}
+                </motion.a>
               </Link>
-              <Link
-                href={"/chauffeur"}
-                className="font-league text-5xl font-normal uppercase text-stone-950"
-              >
-                chauffeur drive
+              <Link href={"/chauffeur"}>
+                <motion.a
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
+                  whileHover={{ scale: 1.1, color: "#FF69B4" }}
+                  onMouseEnter={() => handleHover("/chauffeur")}
+                  onMouseLeave={() => handleHoverExit("/chauffeur")}
+                >
+                  chauffeur drive
+                  {isLinkHovered("/chauffeur") && (
+                    <motion.div
+                      className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowIcon
+                        fill="#110F0E"
+                        className="scale-[0.6] overflow-visible"
+                      />
+                    </motion.div>
+                  )}
+                </motion.a>
               </Link>
-              <Link
-                href={"/personal"}
-                className="font-league text-5xl font-normal uppercase text-stone-950"
-              >
-                personal Concierge
+              <Link href={"/personal"}>
+                <motion.a
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
+                  whileHover={{ scale: 1.1, color: "#FF69B4" }}
+                  onMouseEnter={() => handleHover("/personal")}
+                  onMouseLeave={() => handleHoverExit("/personal")}
+                >
+                  personal Concierge
+                  {isLinkHovered("/personal") && (
+                    <motion.div
+                      className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowIcon
+                        fill="#110F0E"
+                        className="scale-[0.6] overflow-visible"
+                      />
+                    </motion.div>
+                  )}
+                </motion.a>
               </Link>
-              <Link
-                href={"/EVENTS"}
-                className="font-league text-5xl font-normal uppercase text-stone-950"
-              >
-                EVENTS
+              <Link href={"/EVENTS"}>
+                <motion.a
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
+                  whileHover={{ scale: 1.1, color: "#FF69B4" }}
+                  onMouseEnter={() => handleHover("/EVENTS")}
+                  onMouseLeave={() => handleHoverExit("/EVENTS")}
+                >
+                  EVENTS
+                  {isLinkHovered("/EVENTS") && (
+                    <motion.div
+                      className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowIcon
+                        fill="#110F0E"
+                        className="scale-[0.6] overflow-visible"
+                      />
+                    </motion.div>
+                  )}
+                </motion.a>
               </Link>
-              <Link
-                href={"/CONTACT-US"}
-                className="font-league text-5xl font-normal uppercase text-stone-950"
-              >
-                CONTACT US
+              <Link href={"/CONTACT-US"}>
+                <motion.a
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
+                  whileHover={{ scale: 1.1, color: "#FF69B4" }}
+                  onMouseEnter={() => handleHover("/CONTACT-US")}
+                  onMouseLeave={() => handleHoverExit("/CONTACT-US")}
+                >
+                  CONTACT US
+                  {isLinkHovered("/CONTACT-US") && (
+                    <motion.div
+                      className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-stone-950 p-[20px]"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowIcon
+                        fill="#110F0E"
+                        className="scale-[0.6] overflow-visible"
+                      />
+                    </motion.div>
+                  )}
+                </motion.a>
               </Link>
             </div>
             <div className="ml-3 flex items-start justify-between border-t border-stone-700 py-5">

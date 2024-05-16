@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ArrowIcon from "@/public/icons/ArrowIcon";
+import { HoverContext } from "@/context/HoverContext";
 
 interface Props {
   title: {
@@ -14,10 +15,19 @@ interface Props {
 }
 
 const Article: React.FC<Props> = ({ title, desc, image }) => {
+  const { setCursorSize } = useContext(HoverContext);
   return (
     <section className="flex h-screen w-[1100px] items-center justify-center overflow-hidden bg-white p-28">
       <Link href={"/link"}>
-        <div className="flex flex-col items-center justify-center gap-5">
+        <div
+          className="flex flex-col items-center justify-center gap-5"
+          onMouseEnter={() => {
+            setCursorSize(100);
+          }}
+          onMouseLeave={() => {
+            setCursorSize(8);
+          }}
+        >
           <div className="flex w-[750] items-center justify-between ">
             <h1 className="font-league text-5xl font-normal capitalize text-stone-950">
               {title.titleP1}
