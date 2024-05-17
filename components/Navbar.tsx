@@ -19,9 +19,9 @@ const Navbar = () => {
   return (
     <>
       <Menu toggleMenu={toggleMenu} isOpen={isOpen} />
-      <nav className="fixed left-0 top-0 z-40 inline-flex w-screen flex-1 items-center justify-between px-[70px] mix-blend-difference">
+      <nav className="fixed left-0 top-0 z-40 inline-flex w-screen flex-1 items-center justify-between px-4 mix-blend-difference sm:px-8 md:px-[70px]">
         <Link href="/contact" className="flex items-center gap-2">
-          <span className="font-league text-2xl font-normal uppercase text-stone-50">
+          <span className="font-league text-xl font-normal uppercase text-stone-50 md:text-2xl">
             Contact us
           </span>
           <div className="flex h-6 w-6 items-center justify-center rounded-full border-[1px] border-stone-100 p-[17px]">
@@ -36,7 +36,7 @@ const Navbar = () => {
           className="flex items-center"
           onClick={toggleMenu}
         >
-          <span className="font-league text-2xl uppercase text-stone-100">
+          <span className="font-league text-xl uppercase text-stone-100 md:text-2xl">
             Menu
           </span>
           <motion.div

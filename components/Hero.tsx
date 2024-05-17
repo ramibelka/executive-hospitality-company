@@ -6,13 +6,13 @@ import { HoverContext } from "@/context/HoverContext";
 const Hero = () => {
   const { setCursorSize } = useContext(HoverContext);
   return (
-    <section className="h-screen w-screen md:overflow-hidden">
+    <section className="h-screen w-screen overflow-hidden">
       <BgVideo />
-      <div className="relative z-10 inline-flex h-full w-full flex-col items-start justify-center gap-5 pl-[70px]">
-        <h1 className="font-league text-8xl font-normal capitalize text-stone-100">
+      <div className="relative z-10 inline-flex h-full w-full flex-col items-start justify-center gap-5 pl-4 sm:pl-8 md:pl-[70px]">
+        <h1 className="font-league text-5xl font-normal capitalize text-stone-100 md:text-8xl">
           Elevate Your Journey <br /> with Unmatched Luxury
         </h1>
-        <p className="w-5/12 font-manrope text-base font-normal leading-[28.80px] text-stone-200">
+        <p className="w-9/12 font-manrope text-sm text-stone-200 md:w-5/12 md:text-base md:leading-[28.80px]">
           Discover bespoke Chauffeur, Security, and Concierge services tailored
           for Discerning clients in the UK and internationally. Experience the
           pinnacle of sophistication and service with Executive Hospitality
