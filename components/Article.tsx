@@ -12,12 +12,14 @@ interface Props {
   };
   desc: string;
   image: any;
+  mobileImage: any;
 }
 
-const Article: React.FC<Props> = ({ title, desc, image }) => {
-  const { setCursorSize } = useContext(HoverContext);
+const Article: React.FC<Props> = ({ title, desc, image, mobileImage }) => {
+  const { setCursorSize, isMobile } = useContext(HoverContext);
+
   return (
-    <section className="flex h-[550px] items-center justify-center overflow-hidden bg-white px-8 md:h-screen md:w-[1100px] md:p-28">
+    <section className="flex h-[90vh] items-center justify-center overflow-hidden bg-white px-8 md:h-screen md:w-[1100px] md:p-28">
       <Link href={"/link"}>
         <div
           className="flex flex-col items-center justify-center gap-5"
@@ -45,20 +47,32 @@ const Article: React.FC<Props> = ({ title, desc, image }) => {
               {desc}
             </p>
           </div>
-          <div className="h-60 overflow-hidden">
-            <motion.div
-              initial={{ scale: 1.3 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 2 }}
-            >
-              <Image
-                src={image}
-                alt="Chaufeur service"
-                height={1200}
-                width={1000}
-                className="scale-150 md:scale-0"
-              />
-            </motion.div>
+          <div className="overflow-hidden">
+            {!isMobile ? (
+              <motion.div
+                initial={{ scale: 1.3 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 2 }}
+              >
+                <Image
+                  src={image}
+                  alt="Chaufeur service"
+                  height={1000}
+                  width={1000}
+                  className="scale-150 md:scale-100"
+                />
+              </motion.div>
+            ) : (
+              <div className="h-auto">
+                <Image
+                  src={mobileImage}
+                  alt="Chaufeur service"
+                  height={1000}
+                  width={1000}
+                  className="scale-100 md:scale-100"
+                />
+              </div>
+            )}
           </div>
         </div>
       </Link>

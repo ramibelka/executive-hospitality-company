@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <>
       <Menu toggleMenu={toggleMenu} isOpen={isOpen} />
-      <nav className="fixed left-0 top-0 z-40 inline-flex w-screen flex-1 items-center justify-between px-8 mix-blend-difference md:px-[70px]">
+      <nav className="fixed left-0 top-0 z-40 inline-flex w-screen flex-1 items-center justify-between px-4 mix-blend-difference sm:px-8 md:px-[70px]">
         <Link href="/contact" className="flex items-center gap-2">
           <span className="font-league text-xl font-normal uppercase text-stone-50 md:text-2xl">
             Contact us

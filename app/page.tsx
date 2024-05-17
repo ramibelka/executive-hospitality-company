@@ -14,18 +14,20 @@ import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { useHorizScroll } from "@/hooks/useHorizScroll";
 import MouseFollower from "@/components/MouseFollower";
 import { HoverContext } from "@/context/HoverContext";
+import LoadingScreen from "./loading";
 
 export default function Home() {
   useSmoothScroll();
-  let isMobile = false;
-  if (typeof window !== "undefined") {
-    isMobile = window.innerWidth < 768;
-  }
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const ghostRef = useRef<HTMLDivElement | null>(null);
-  const { spring, scrollRange } = useHorizScroll(scrollRef);
+  const { spring, scrollRange, isMobile, isLoading } =
+    useHorizScroll(scrollRef);
   const [cursorSize, setCursorSize] = useState(8);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <HoverContext.Provider
@@ -42,9 +44,17 @@ export default function Home() {
             <motion.div ref={scrollRef} style={{ x: spring }} className="flex">
               <Hero />
               <Journey />
-              {articlesData.map(({ title, desc, image }, index) => (
-                <Article key={index} title={title} desc={desc} image={image} />
-              ))}
+              {articlesData.map(
+                ({ title, desc, image, mobileImage }, index) => (
+                  <Article
+                    key={index}
+                    title={title}
+                    desc={desc}
+                    image={image}
+                    mobileImage={mobileImage}
+                  />
+                ),
+              )}
               <Craft />
               <CardsList />
               <Begin />
@@ -54,9 +64,17 @@ export default function Home() {
             <div>
               <Hero />
               <Journey />
-              {articlesData.map(({ title, desc, image }, index) => (
-                <Article key={index} title={title} desc={desc} image={image} />
-              ))}
+              {articlesData.map(
+                ({ title, desc, image, mobileImage }, index) => (
+                  <Article
+                    key={index}
+                    title={title}
+                    desc={desc}
+                    image={image}
+                    mobileImage={mobileImage}
+                  />
+                ),
+              )}
               <Craft />
               <CardsList />
               <Begin />

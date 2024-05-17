@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import BeginImg from "../public/images/BeginImg.png";
+import BeginMobile from "../public/images/BeginMobile.png";
 import Image from "next/image";
 import ArrowIcon from "@/public/icons/ArrowIcon";
 import Link from "next/link";
@@ -53,7 +54,7 @@ const Begin = () => {
           ) : (
             <div className="relative">
               <Image
-                src={BeginImg}
+                src={BeginMobile}
                 alt="Begin"
                 height={700}
                 width={1190}

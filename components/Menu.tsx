@@ -33,14 +33,14 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="h-full w-1/3"
+            className="hidden h-full w-1/3 md:block"
             initial={{ backdropFilter: "blur(0)" }}
             animate={{ backdropFilter: "blur(7px)" }}
             transition={{ duration: 2 }}
             onClick={toggleMenu}
           ></motion.div>
           <motion.div
-            className="flex h-full w-2/3 flex-col justify-between bg-slate-50 px-16 py-2"
+            className="flex h-full w-full flex-col justify-between bg-slate-50 px-4 py-2 md:w-2/3 md:px-16"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -57,10 +57,10 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
               </button>
             </div>
 
-            <div className="flex flex-col gap-2 pl-3">
+            <div className="flex flex-col items-center gap-2 pl-3 md:items-start">
               <Link href={"/HOME"}>
                 <motion.a
-                  className="flex items-center gap-2 font-league text-3xl font-normal uppercase text-stone-950 md:text-5xl"
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
                   whileHover={{ scale: 1.1, color: "#FF69B4" }}
                   onMouseEnter={() => handleHover("/HOME")}
                   onMouseLeave={() => handleHoverExit("/HOME")}
@@ -84,7 +84,7 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
               </Link>
               <Link href={"/ABOUT"}>
                 <motion.a
-                  className="flex items-center gap-2 font-league text-3xl font-normal uppercase text-stone-950 md:text-5xl"
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
                   whileHover={{ scale: 1.1, color: "#FF69B4" }}
                   onMouseEnter={() => handleHover("/ABOUT")}
                   onMouseLeave={() => handleHoverExit("/ABOUT")}
@@ -108,7 +108,7 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
               </Link>
               <Link href={"/chauffeur"}>
                 <motion.a
-                  className="flex items-center gap-2 font-league text-3xl font-normal uppercase text-stone-950 md:text-5xl"
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
                   whileHover={{ scale: 1.1, color: "#FF69B4" }}
                   onMouseEnter={() => handleHover("/chauffeur")}
                   onMouseLeave={() => handleHoverExit("/chauffeur")}
@@ -132,7 +132,7 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
               </Link>
               <Link href={"/personal"}>
                 <motion.a
-                  className="flex items-center gap-2 font-league text-3xl font-normal uppercase text-stone-950 md:text-5xl"
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
                   whileHover={{ scale: 1.1, color: "#FF69B4" }}
                   onMouseEnter={() => handleHover("/personal")}
                   onMouseLeave={() => handleHoverExit("/personal")}
@@ -156,7 +156,7 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
               </Link>
               <Link href={"/EVENTS"}>
                 <motion.a
-                  className="flex items-center gap-2 font-league text-3xl font-normal uppercase text-stone-950 md:text-5xl"
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
                   whileHover={{ scale: 1.1, color: "#FF69B4" }}
                   onMouseEnter={() => handleHover("/EVENTS")}
                   onMouseLeave={() => handleHoverExit("/EVENTS")}
@@ -180,7 +180,7 @@ const Menu: React.FC<Props> = ({ toggleMenu, isOpen }) => {
               </Link>
               <Link href={"/CONTACT-US"}>
                 <motion.a
-                  className="flex items-center gap-2 font-league text-3xl font-normal uppercase text-stone-950 md:text-5xl"
+                  className="flex items-center gap-2 font-league text-5xl font-normal uppercase text-stone-950"
                   whileHover={{ scale: 1.1, color: "#FF69B4" }}
                   onMouseEnter={() => handleHover("/CONTACT-US")}
                   onMouseLeave={() => handleHoverExit("/CONTACT-US")}
