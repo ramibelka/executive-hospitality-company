@@ -10,10 +10,10 @@ const Craft = () => {
   const spring = useSpring(translateX, physics);
 
   return (
-    <section className="relative z-10 h-screen w-screen overflow-hidden">
+    <section className="relative z-10 w-screen overflow-hidden md:h-screen">
       <div className="absolute inset-0 -z-50 h-full w-full">
-        <div className="absolute inset-0 w-full bg-stone-950"></div>
-        <div className="absolute inset-0 w-3/12 bg-white"></div>
+        <div className="absolute inset-0 h-full bg-stone-950 md:h-auto md:w-full"></div>
+        <div className="absolute inset-0 h-3/4 bg-white md:h-auto md:w-3/12"></div>
       </div>
       <div className="z-10 flex h-full items-center justify-center gap-9">
         <motion.div style={{ x: spring }}>

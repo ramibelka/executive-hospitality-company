@@ -32,22 +32,37 @@ export default function Home() {
       value={{
         cursorSize,
         setCursorSize,
+        isMobile,
       }}
     >
-      <main className="relative h-[1700vh] scroll-smooth">
-        <MouseFollower />
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <motion.div ref={scrollRef} style={{ x: spring }} className="flex">
-            <Hero />
-            <Journey />
-            {articlesData.map(({ title, desc, image }, index) => (
-              <Article key={index} title={title} desc={desc} image={image} />
-            ))}
-            <Craft />
-            <CardsList />
-            <Begin />
-            <Footer />
-          </motion.div>
+      <main className="scroll-smooth md:relative md:h-[1700vh]">
+        {!isMobile && <MouseFollower />}
+        <div className="flex items-center md:sticky md:top-0 md:h-screen md:overflow-hidden">
+          {!isMobile ? (
+            <motion.div ref={scrollRef} style={{ x: spring }} className="flex">
+              <Hero />
+              <Journey />
+              {articlesData.map(({ title, desc, image }, index) => (
+                <Article key={index} title={title} desc={desc} image={image} />
+              ))}
+              <Craft />
+              <CardsList />
+              <Begin />
+              <Footer />
+            </motion.div>
+          ) : (
+            <div>
+              <Hero />
+              <Journey />
+              {articlesData.map(({ title, desc, image }, index) => (
+                <Article key={index} title={title} desc={desc} image={image} />
+              ))}
+              <Craft />
+              <CardsList />
+              <Begin />
+              <Footer />
+            </div>
+          )}
           <div
             ref={ghostRef}
             style={{ height: scrollRange }}

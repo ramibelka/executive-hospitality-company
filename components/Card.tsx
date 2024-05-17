@@ -7,7 +7,7 @@ import React, { useContext } from "react";
 const Card = () => {
   const { setCursorSize } = useContext(HoverContext);
   return (
-    <article className="mt-5 flex w-[600px] flex-col gap-16 overflow-hidden border-l border-stone-100 px-16">
+    <article className="mt-5 flex flex-col gap-16 overflow-hidden border-l border-stone-100 px-8 md:w-[600px] md:px-16">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
