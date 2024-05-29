@@ -21,17 +21,18 @@ const Begin = () => {
           <div className="absolute inset-0 h-full bg-white md:h-auto md:w-full"></div>
           <div className="absolute inset-0 h-1/2 bg-stone-950 md:h-auto md:w-1/2"></div>
         </div>
-        <div
-          className="relative z-10 flex h-full w-full items-center justify-center"
-          onMouseEnter={() => {
-            setCursorSize(100);
-          }}
-          onMouseLeave={() => {
-            setCursorSize(8);
-          }}
-        >
+        <div className="relative z-10 flex h-full w-full items-center justify-center">
           {!isMobile ? (
-            <motion.div className="relative" style={{ x: spring }}>
+            <motion.div
+              className="relative"
+              style={{ x: spring }}
+              onMouseEnter={() => {
+                setCursorSize(100);
+              }}
+              onMouseLeave={() => {
+                setCursorSize(8);
+              }}
+            >
               <Image
                 src={BeginImg}
                 alt="Begin"

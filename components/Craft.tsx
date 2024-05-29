@@ -6,13 +6,13 @@ import { HoverContext } from "@/context/HoverContext";
 
 const Craft = () => {
   const { scrollYProgress } = useScroll();
-  const translateX = useTransform(scrollYProgress, [0, 1], [-600, 500]);
+  const translateX = useTransform(scrollYProgress, [0, 1], [-500, 500]);
   const physics = { damping: 15, mass: 0.4, stiffness: 55 };
   const spring = useSpring(translateX, physics);
   const { isMobile } = useContext(HoverContext);
 
   return (
-    <section className="relative z-10 h-[1000px] w-screen overflow-hidden md:h-screen">
+    <section className="relative z-10 h-[1000px] w-screen md:h-screen">
       <div className="absolute inset-0 -z-50 h-full w-full">
         <div className="absolute inset-0 h-full bg-stone-950 md:h-auto md:w-full"></div>
         <div className="absolute inset-0 h-2/5 bg-white md:h-auto md:w-3/12"></div>

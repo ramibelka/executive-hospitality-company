@@ -1,11 +1,12 @@
 "use client";
 
+import React, { useState, useMemo } from "react";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Journey from "@/components/Journey";
 import Article from "@/components/Article";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { articlesData } from "@/data";
 import Craft from "@/components/Craft";
 import Begin from "@/components/Begin";
@@ -25,18 +26,17 @@ export default function Home() {
     useHorizScroll(scrollRef);
   const [cursorSize, setCursorSize] = useState(8);
 
+  const hoverContextValue = useMemo(
+    () => ({ cursorSize, setCursorSize, isMobile }),
+    [cursorSize, isMobile],
+  );
+
   if (isLoading) {
     return <LoadingScreen />;
   }
 
   return (
-    <HoverContext.Provider
-      value={{
-        cursorSize,
-        setCursorSize,
-        isMobile,
-      }}
-    >
+    <HoverContext.Provider value={hoverContextValue}>
       <main className="scroll-smooth md:relative md:h-[1700vh]">
         {!isMobile && <MouseFollower />}
         <div className="flex items-center md:sticky md:top-0 md:h-screen md:overflow-hidden">
