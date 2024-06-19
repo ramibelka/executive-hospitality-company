@@ -15,8 +15,7 @@ const Hero = () => {
         <p className="w-9/12 font-manrope text-sm text-stone-200 md:w-5/12 md:text-base md:leading-[28.80px]">
           Discover bespoke Chauffeur, Security, and Concierge services tailored
           for Discerning clients in the UK and internationally. Experience the
-          pinnacle of sophistication and service with Executive Hospitality
-          Company.
+          pinnacle of sophistication and service with VIP Choice.
         </p>
         <div
           className="inline-flex items-center justify-center gap-[15px]"

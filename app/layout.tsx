@@ -3,9 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Executive Hospitality Company",
+  title: "VIP Choice",
   description:
-    "Discover bespoke Chauffeur, Security, and Concierge services tailored for Discerning clients in the UK and internationally. Experience the pinnacle of sophistication and service with Executive Hospitality Company.",
+    "Discover bespoke Chauffeur, Security, and Concierge services tailored for Discerning clients in the UK and internationally. Experience the pinnacle of sophistication and service with VIP Choice.",
 };
 
 export default function RootLayout({

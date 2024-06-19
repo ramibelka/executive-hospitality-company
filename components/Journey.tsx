@@ -50,10 +50,10 @@ const Journey = () => {
             Our Journey of Luxury and Precision
           </h1>
           <p className="font-manrope text-sm text-stone-700 md:w-8/12 md:text-base md:leading-[28.80px]">
-            Founded in the heart of London, Executive Hospitality Company has
-            redefined luxury travel with over a decade of industry-leading
-            experience. Our founders’ innovative approach to chauffeur services,
-            personal security, and concierge solutions ensures every detail is
+            Founded in the heart of London, VIP Choice has redefined luxury
+            travel with over a decade of industry-leading experience. Our
+            founders’ innovative approach to chauffeur services, personal
+            security, and concierge solutions ensures every detail is
             meticulously managed to deliver unparalleled service
           </p>
           <div
