@@ -23,9 +23,8 @@ const Craft = () => {
             <Image
               src={CraftImg}
               alt="inside a car"
-              height={700}
-              width={525.26}
               className="scale-[0.8] lg:scale-75"
+              priority
             />
           </motion.div>
         ) : (
@@ -33,9 +32,8 @@ const Craft = () => {
             <Image
               src={CraftImg}
               alt="inside a car"
-              height={700}
-              width={525.26}
               className="scale-[0.65] lg:scale-75"
+              priority
             />
           </div>
         )}

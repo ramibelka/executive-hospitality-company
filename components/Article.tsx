@@ -63,9 +63,8 @@ const Article: React.FC<Props> = ({ title, desc, image, mobileImage }) => {
                 <Image
                   src={image}
                   alt="Chaufeur service"
-                  height={1000}
-                  width={1000}
                   className="scale-100"
+                  priority
                 />
               </motion.div>
             ) : (
@@ -73,9 +72,8 @@ const Article: React.FC<Props> = ({ title, desc, image, mobileImage }) => {
                 <Image
                   src={mobileImage}
                   alt="Chaufeur service"
-                  height={1000}
-                  width={1000}
                   className="scale-100"
+                  priority
                 />
               </div>
             )}

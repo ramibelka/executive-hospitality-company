@@ -36,9 +36,8 @@ const Begin = () => {
               <Image
                 src={BeginImg}
                 alt="Begin"
-                height={700}
-                width={1190}
                 className="scale-[0.6]"
+                priority
               />
               <div className="absolute bottom-20 left-10 flex items-center justify-center md:bottom-64 md:left-80">
                 <h1 className="font-league text-2xl capitalize text-stone-100 md:text-8xl">
@@ -57,9 +56,8 @@ const Begin = () => {
               <Image
                 src={BeginMobile}
                 alt="Begin"
-                height={700}
-                width={1190}
                 className="scale-[0.9] md:scale-[0.8]"
+                priority
               />
               <div className="absolute bottom-20 left-20 flex items-center justify-center md:bottom-64 md:left-80">
                 <h1 className="font-league text-6xl capitalize text-stone-100 md:text-8xl">
