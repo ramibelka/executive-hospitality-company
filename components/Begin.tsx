@@ -35,6 +35,8 @@ const Begin = () => {
             >
               <Image
                 src={BeginImg}
+                height={700}
+                width={1190}
                 alt="Begin"
                 className="scale-[0.6]"
                 priority
