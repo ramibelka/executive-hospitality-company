@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import BeginImg from "../public/images/BeginImg.png";
-import BeginMobile from "../public/images/BeginMobile.png";
+import BeginImg from "../public/images/BeginImg.webp";
+import BeginMobile from "../public/images/BeginMobile.webp";
 import Image from "next/image";
 import ArrowIcon from "@/public/icons/ArrowIcon";
 import Link from "next/link";

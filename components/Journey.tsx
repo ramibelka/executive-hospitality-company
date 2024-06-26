@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import InsideCar from "../public/images/InsideCar.png";
+import InsideCar from "../public/images/InsideCar.webp";
 import Image from "next/image";
 import ArrowIcon from "@/public/icons/ArrowIcon";
 import { HoverContext } from "@/context/HoverContext";

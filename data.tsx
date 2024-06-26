@@ -1,9 +1,9 @@
-import Limo from "./public/images/Limo.png";
-import LimoMobile from "./public/images/LimoMobile.png";
-import Safe from "./public/images/Safe.png";
-import SafeMobile from "./public/images/SafeMobile.png";
-import Service from "./public/images/Service.png";
-import ServiceMobile from "./public/images/ServiceMobile.png";
+import Limo from "./public/images/Limo.webp";
+import LimoMobile from "./public/images/LimoMobile.webp";
+import Safe from "./public/images/Safe.webp";
+import SafeMobile from "./public/images/SafeMobile.webp";
+import Service from "./public/images/Service.webp";
+import ServiceMobile from "./public/images/ServiceMobile.webp";
 
 export const articlesData = [
   {

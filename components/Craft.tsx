@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import CraftImg from "../public/images/Craft.png";
+import CraftImg from "../public/images/Craft.webp";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { HoverContext } from "@/context/HoverContext";
