@@ -1,15 +1,29 @@
-import React from "react";
+import { HoverContext } from "@/context/HoverContext";
+import React, { useContext, useEffect } from "react";
 
 const BgVideo = () => {
+  const { setIsLoading, isLoading } = useContext(HoverContext);
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 30000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className="relative">
       <div className="absolute top-0 z-0 h-screen w-screen overflow-hidden">
         <video
+          preload="none"
+          id="bgVideo"
           autoPlay
           muted
           loop
           playsInline
           className="h-full w-full object-cover"
+          onLoadedData={() => setIsLoading(false)}
+          onCanPlayThrough={() => setIsLoading(false)}
+          onCanPlay={() => setIsLoading(false)}
         >
           <source src="/bg-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.

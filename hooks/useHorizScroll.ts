@@ -7,7 +7,6 @@ export const useHorizScroll = (
   const [scrollRange, setScrollRange] = useState(0);
   const [viewportW, setViewportW] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setViewportW(window.innerWidth);
@@ -18,13 +17,12 @@ export const useHorizScroll = (
     };
 
     window.addEventListener("resize", updateViewport);
-    setIsLoading(false);
     return () => window.removeEventListener("resize", updateViewport);
   }, []);
 
   useLayoutEffect(() => {
     scrollRef?.current && setScrollRange(scrollRef?.current.scrollWidth);
-  }, [scrollRef?.current?.scrollWidth, isLoading]);
+  }, [scrollRef?.current?.scrollWidth]);
 
   const { scrollYProgress } = useScroll();
   const transform = useTransform(
@@ -35,5 +33,5 @@ export const useHorizScroll = (
   const physics = { damping: 15, mass: 0.27, stiffness: 100 };
   const spring = useSpring(transform, physics);
 
-  return { spring, scrollRange, isMobile, isLoading };
+  return { spring, scrollRange, isMobile };
 };

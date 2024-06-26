@@ -22,22 +22,21 @@ export default function Home() {
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const ghostRef = useRef<HTMLDivElement | null>(null);
-  const { spring, scrollRange, isMobile, isLoading } =
-    useHorizScroll(scrollRef);
+  const { spring, scrollRange, isMobile } = useHorizScroll(scrollRef);
   const [cursorSize, setCursorSize] = useState(8);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const hoverContextValue = useMemo(
-    () => ({ cursorSize, setCursorSize, isMobile }),
-    [cursorSize, isMobile],
-  );
-
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+  const hoverContextValue = {
+    cursorSize,
+    setCursorSize,
+    isMobile,
+    setIsLoading,
+  };
 
   return (
     <HoverContext.Provider value={hoverContextValue}>
       <main className="scroll-smooth md:relative md:h-[1700vh]">
+        <LoadingScreen isLoading={isLoading} />
         {!isMobile && <MouseFollower />}
         <div className="flex items-center md:sticky md:top-0 md:h-screen md:overflow-hidden">
           {!isMobile ? (
@@ -61,7 +60,7 @@ export default function Home() {
               <Footer />
             </motion.div>
           ) : (
-            <div>
+            <div className="overflow-hidden">
               <Hero />
               <Journey />
               {articlesData.map(
